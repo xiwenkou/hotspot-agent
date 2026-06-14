@@ -1,0 +1,26 @@
+<view class="card" bindtap="onTap">
+  <view class="card-header">
+    <view class="category-tag">{{item.category || '综合'}}</view>
+    <view class="platforms">
+      <text class="platform-text" wx:for="{{item.platforms}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+  
+  <view class="card-title">{{item.title}}</view>
+  
+  <view class="card-summary" wx:if="{{item.summary}}">
+    {{item.summary}}
+  </view>
+  
+  <view class="card-footer">
+    <view class="ai-tags">
+      <view class="tag risk-{{item.risk_level === '高' ? 'high' : (item.risk_level === '中' ? 'mid' : 'low')}}">
+        <text class="dot"></text> 风险: {{item.risk_level || '未知'}}
+      </view>
+      <view class="tag score">
+        <text class="score-icon">★</text> 价值 {{item.creative_value || 0}}
+      </view>
+    </view>
+    <view class="rank">No.{{item.max_rank}}</view>
+  </view>
+</view>

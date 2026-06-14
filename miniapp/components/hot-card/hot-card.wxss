@@ -1,0 +1,121 @@
+.card {
+  background-color: var(--bg-card);
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin-bottom: 32rpx;
+  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.card:active {
+  transform: scale(0.98);
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.02);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.category-tag {
+  background-color: var(--accent-light);
+  color: var(--accent-color);
+  font-size: 22rpx;
+  font-weight: 600;
+  padding: 8rpx 20rpx;
+  border-radius: 12rpx;
+}
+
+.platforms {
+  display: flex;
+  gap: 12rpx;
+}
+
+.platform-text {
+  font-size: 20rpx;
+  color: var(--text-secondary);
+  background: var(--bg-primary);
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+}
+
+.card-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-main);
+  margin-bottom: 16rpx;
+  /* 多行截断 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.card-summary {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 24rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: 24rpx;
+}
+
+.ai-tags {
+  display: flex;
+  gap: 16rpx;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  font-size: 22rpx;
+  padding: 6rpx 16rpx;
+  border-radius: 100rpx;
+  font-weight: 500;
+}
+
+.dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  margin-right: 8rpx;
+}
+
+.risk-high { background-color: rgba(239, 68, 68, 0.1); color: var(--risk-high); }
+.risk-high .dot { background-color: var(--risk-high); }
+
+.risk-mid { background-color: rgba(245, 158, 11, 0.1); color: var(--risk-mid); }
+.risk-mid .dot { background-color: var(--risk-mid); }
+
+.risk-low { background-color: rgba(16, 185, 129, 0.1); color: var(--risk-low); }
+.risk-low .dot { background-color: var(--risk-low); }
+
+.score {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+}
+.score-icon {
+  color: var(--accent-color);
+  margin-right: 6rpx;
+}
+
+.rank {
+  font-size: 28rpx;
+  font-weight: 800;
+  color: var(--border-color); /* 浅色的大号排名，体现高级感 */
+  font-style: italic;
+}

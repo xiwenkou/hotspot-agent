@@ -1,0 +1,38 @@
+page {
+  /* 明亮高级主题变量 - Premium Light Theme */
+  --bg-primary: #F7F9FC; /* 优雅浅灰蓝背景 */
+  --bg-card: #FFFFFF; /* 纯白卡片 */
+  --text-main: #111827; /* 近黑主文本 */
+  --text-secondary: #6B7280; /* 高级灰次级文本 */
+  --accent-color: #3B82F6; /* 核心强调蓝 */
+  --accent-light: #EFF6FF; /* 极浅的底纹蓝 */
+  --border-color: #E5E7EB; /* 浅分割线 */
+  
+  --risk-low: #10B981; /* 翠绿 */
+  --risk-mid: #F59E0B; /* 橘黄 */
+  --risk-high: #EF4444; /* 绯红 */
+  
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* 全局基础重置 */
+view, text, image, scroll-view {
+  box-sizing: border-box;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 32rpx;
+  background-color: var(--bg-primary);
+}
+
+/* 一些通用文字样式类 */
+.text-bold {
+  font-weight: 600;
+}
+.text-sm {
+  font-size: 24rpx;
+}

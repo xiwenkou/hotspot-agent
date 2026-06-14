@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F7F9FC",
+    "navigationBarTitleText": "热点情报 Agent",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {}
+}

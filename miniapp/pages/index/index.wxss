@@ -1,0 +1,26 @@
+.header {
+  margin-bottom: 40rpx;
+  padding-top: 20rpx;
+}
+
+.greeting {
+  display: block;
+  font-size: 56rpx;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 12rpx;
+  letter-spacing: -1rpx;
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+.loading-state {
+  text-align: center;
+  padding: 100rpx 0;
+  color: var(--accent-color);
+  font-size: 28rpx;
+  font-weight: 500;
+}

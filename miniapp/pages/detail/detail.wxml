@@ -1,0 +1,53 @@
+<view class="container" wx:if="{{!loading && event}}">
+  <view class="header-section">
+    <view class="meta">
+      <text class="category">{{event.category}}</text>
+      <text class="platform" wx:for="{{event.platforms}}" wx:key="*this">{{item}}</text>
+    </view>
+    <view class="title">{{event.title}}</view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">AI 情报摘要</view>
+    <view class="summary-box">
+      <text>{{event.summary}}</text>
+    </view>
+  </view>
+
+  <view class="section flex-row">
+    <view class="info-card">
+      <text class="info-label">可信度评估</text>
+      <text class="info-value">{{event.credibility}}</text>
+    </view>
+    <view class="info-card">
+      <text class="info-label">反转风险</text>
+      <text class="info-value risk-{{event.risk_level === '高' ? 'high' : (event.risk_level === '中' ? 'mid' : 'low')}}">{{event.risk_level}}</text>
+    </view>
+    <view class="info-card">
+      <text class="info-label">创作价值</text>
+      <text class="info-value score">★ {{event.creative_value}}</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">💡 推荐创作角度</view>
+    <view class="angle-list">
+      <view class="angle-item" wx:for="{{event.angles}}" wx:key="*this">
+        <text class="angle-index">{{index + 1}}</text>
+        <text class="angle-text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="section" wx:if="{{event.suggestion}}">
+    <view class="section-title">Agent 跟进建议</view>
+    <view class="suggestion-box">
+      <text>{{event.suggestion}}</text>
+    </view>
+  </view>
+
+</view>
+
+<view class="loading-state" wx:if="{{loading}}">
+  <text>加载中...</text>
+</view>

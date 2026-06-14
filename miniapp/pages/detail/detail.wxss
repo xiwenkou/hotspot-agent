@@ -1,0 +1,132 @@
+.header-section {
+  margin-bottom: 48rpx;
+}
+
+.meta {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.category {
+  color: var(--accent-color);
+  background-color: var(--accent-light);
+  padding: 6rpx 20rpx;
+  border-radius: 12rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+.platform {
+  color: var(--text-secondary);
+  background-color: var(--border-color);
+  padding: 6rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+}
+
+.title {
+  font-size: 44rpx;
+  font-weight: 800;
+  line-height: 1.4;
+  color: var(--text-main);
+}
+
+.section {
+  margin-bottom: 48rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 24rpx;
+}
+
+.summary-box {
+  background-color: var(--bg-card);
+  padding: 32rpx;
+  border-radius: 24rpx;
+  font-size: 30rpx;
+  line-height: 1.6;
+  color: var(--text-main);
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.02);
+}
+
+.flex-row {
+  display: flex;
+  gap: 20rpx;
+}
+
+.info-card {
+  flex: 1;
+  background-color: var(--bg-card);
+  padding: 24rpx;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.02);
+}
+
+.info-label {
+  font-size: 22rpx;
+  color: var(--text-secondary);
+  margin-bottom: 12rpx;
+}
+
+.info-value {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.risk-high { color: var(--risk-high); }
+.risk-mid { color: var(--risk-mid); }
+.risk-low { color: var(--risk-low); }
+.score { color: var(--accent-color); }
+
+.angle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.angle-item {
+  display: flex;
+  background-color: var(--bg-card);
+  padding: 28rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.02);
+}
+
+.angle-index {
+  color: var(--accent-color);
+  font-size: 36rpx;
+  font-weight: 800;
+  margin-right: 24rpx;
+  font-style: italic;
+}
+
+.angle-text {
+  font-size: 28rpx;
+  line-height: 1.5;
+  color: var(--text-main);
+}
+
+.suggestion-box {
+  background-color: var(--accent-light);
+  color: var(--accent-color);
+  padding: 32rpx;
+  border-radius: 24rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 100rpx 0;
+  color: var(--accent-color);
+  font-size: 28rpx;
+}

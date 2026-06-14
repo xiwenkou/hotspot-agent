@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="header">
+    <text class="greeting">早安，创作者</text>
+    <text class="subtitle">AI 已为您洞察 {{hotEvents.length}} 条值得关注的情报</text>
+  </view>
+
+  <view class="loading-state" wx:if="{{loading && hotEvents.length === 0}}">
+    <text>正在通过 Agent 分析数据...</text>
+  </view>
+
+  <view class="list" wx:else>
+    <block wx:for="{{hotEvents}}" wx:key="id">
+      <hot-card item="{{item}}" />
+    </block>
+  </view>
+</view>
