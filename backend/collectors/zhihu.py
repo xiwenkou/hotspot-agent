@@ -46,14 +46,20 @@ class ZhihuCollector(BaseCollector):
                     
                     if not title:
                         continue
+                    # 尝试抓取原文
+                    source_content = self.fetch_article_text(link)
+                    if not source_content:
+                        source_content = heat
                         
                     results.append({
                         "title": title,
                         "platform": self.platform,
                         "url": link,
-                        "rank": rank,
-                        "rawHeat": heat,
-                        "collectedAt": self.get_current_time()
+                        "author": None,
+                        "publish_time": None,
+                        "source_content": source_content,
+                        "html_snapshot": None,
+                        "collected_at": self.get_current_time()
                     })
             return results
         except Exception as e:

@@ -38,14 +38,33 @@ class AnalyzerAgent:
         if not self.api_key:
             return {"error": "未配置 DEEPSEEK_API_KEY"}
 
-        prompt = f"""
-你是一个热点事件分析 Agent。
+        platform = event_data.get('platform', '')
+        if "百度" in platform or "谷歌" in platform:
+            # 执行零干预原味直出逻辑 (Passthrough)
+            raw_content = event_data.get("rawHeat", "")
+            return {
+                "title": event_data.get("title"),
+                "platform": platform,
+                "url": event_data.get("url"),
+                "rank": event_data.get("rank"),
+                "summary": raw_content if raw_content else "无详细原文摘要",
+                "category": "实时热点",
+                "tags": [platform],
+                "credibility": "原始数据",
+                "riskLevel": "未知",
+                "creativeValue": 0,
+                "angles": [],
+                "suggestion": ""
+            }
 
-请根据以下热点标题和来源平台，生成结构化分析。
+        prompt = f"""
+你是一个专业的深度热点分析 Agent。
+
+请根据以下热点标题、正文摘要和来源平台，生成结构化分析。
 
 要求：
 1. 不要编造没有来源的信息；
-2. 摘要控制在 100 字以内；
+2. 摘要（summary）必须是一段 300~500 字的、富有细节的深度背景剖析与概括，不要只是一句话结论，要把事件的前因后果、关键数据、核心争议或技术细节都写出来；
 3. 判断事件分类；
 4. 判断可信度；
 5. 判断反转风险；
@@ -57,6 +76,7 @@ class AnalyzerAgent:
 
 热点信息：
 标题：{event_data.get('title', '未知')}
+正文/内容：{event_data.get('rawHeat', '暂无详细内容')}
 来源平台：{event_data.get('platform', '未知')}
 来源链接：{event_data.get('url', '无')}
 

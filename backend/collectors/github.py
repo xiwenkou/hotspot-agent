@@ -7,7 +7,7 @@ class GithubCollector(BaseCollector):
     def __init__(self):
         super().__init__()
         self.platform = "GitHub Trending"
-        self.url = "https://github.com/trending"
+        self.url = "https://github.com/trending?since=weekly"
 
     def fetch_data(self) -> List[Dict[str, Any]]:
         headers = {
@@ -42,13 +42,20 @@ class GithubCollector(BaseCollector):
                 
                 full_title = f"{title}: {desc}" if desc else title
 
+                # 尝试获取 README 作为原文
+                source_content = self.fetch_article_text(url)
+                if not source_content:
+                    source_content = desc if desc else f"GitHub 项目热度: {heat}"
+
                 results.append({
                     "title": full_title,
                     "platform": self.platform,
                     "url": url,
-                    "rank": rank,
-                    "rawHeat": f"{heat} stars",
-                    "collectedAt": self.get_current_time()
+                    "author": None,
+                    "publish_time": None,
+                    "source_content": source_content,
+                    "html_snapshot": None,
+                    "collected_at": self.get_current_time()
                 })
             return results
         except Exception as e:

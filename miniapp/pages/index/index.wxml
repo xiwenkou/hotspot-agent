@@ -1,15 +1,36 @@
 <view class="container">
   <view class="header">
-    <text class="greeting">早安，创作者</text>
-    <text class="subtitle">AI 已为您洞察 {{hotEvents.length}} 条值得关注的情报</text>
+    <view>
+      <text class="eyebrow">Hot Intelligence</text>
+      <text class="greeting">情报洞察</text>
+    </view>
+    <text class="subtitle">{{subtitleText}}</text>
+    <text class="updated" wx:if="{{lastUpdated && !loading}}">更新于 {{lastUpdated}}</text>
   </view>
 
-  <view class="loading-state" wx:if="{{loading && hotEvents.length === 0}}">
-    <text>正在通过 Agent 分析数据...</text>
+  <view class="tabs">
+    <view class="tab-item {{activeTab === 'news' ? 'active' : ''}}" bindtap="switchTab" data-tab="news">实时热榜</view>
+    <view class="tab-item {{activeTab === 'github' ? 'active' : ''}}" bindtap="switchTab" data-tab="github">开源周榜</view>
+  </view>
+
+  <view class="state-card" wx:if="{{loading && filteredEvents.length === 0}}">
+    <view class="state-title">Agent 正在分析</view>
+    <view class="state-copy">正在合并来源、去重并评估创作价值。</view>
+  </view>
+
+  <view class="state-card error" wx:elif="{{error}}">
+    <view class="state-title">暂时没有拿到情报</view>
+    <view class="state-copy">{{error}}</view>
+    <button class="retry-button" bindtap="retryFetch" loading="{{loading}}">重新获取</button>
+  </view>
+
+  <view class="state-card" wx:elif="{{filteredEvents.length === 0}}">
+    <view class="state-title">当前分类暂无内容</view>
+    <view class="state-copy">换个分类看看，或下拉刷新获取最新情报。</view>
   </view>
 
   <view class="list" wx:else>
-    <block wx:for="{{hotEvents}}" wx:key="id">
+    <block wx:for="{{filteredEvents}}" wx:key="id">
       <hot-card item="{{item}}" />
     </block>
   </view>

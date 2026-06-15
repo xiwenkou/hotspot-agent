@@ -3,7 +3,7 @@ import time
 from database import SessionLocal, engine, Base
 from models import models
 from services.hot_event_service import HotEventService
-from collectors import BaiduCollector, ZhihuCollector, GithubCollector
+from collectors import BaiduCollector, GithubCollector, RSSCollector
 from agents.analyzer_agent import AnalyzerAgent
 
 def main():
@@ -15,9 +15,10 @@ def main():
     db = SessionLocal()
     service = HotEventService(db)
     
-    # 1. 初始化采集器
+    # 1. 初始化高质量采集器
     collectors = [
         BaiduCollector(),
+        RSSCollector("谷歌热点", "https://news.google.com/rss?hl=zh-CN&gl=CN&ceid=CN:zh-Hans"),
         GithubCollector()
     ]
     

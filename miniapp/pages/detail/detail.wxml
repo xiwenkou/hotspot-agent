@@ -8,13 +8,22 @@
   </view>
 
   <view class="section">
-    <view class="section-title">AI 情报摘要</view>
+    <!-- 区分标题：如果是 AI 生成的则是“AI 情报摘要”，如果是直出的新闻则是“原文内容” -->
+    <view class="section-title">{{event.creative_value > 0 ? 'AI 情报摘要' : '原文内容'}}</view>
     <view class="summary-box">
+      <!-- 原文内容可能较长，使用 text 标签可以自动换行 -->
       <text>{{event.summary}}</text>
+    </view>
+    <view class="source-info" style="margin-top: 16rpx; font-size: 24rpx; color: #8C99A6;" wx:if="{{event.url}}">
+      <text selectable="true">原文链接: {{event.url}}</text>
+    </view>
+    <view class="source-info" style="margin-top: 8rpx; font-size: 24rpx; color: #8C99A6;" wx:if="{{event.publish_time}}">
+      <text>发布时间: {{event.publish_time}}</text>
     </view>
   </view>
 
-  <view class="section flex-row">
+  <!-- 仅在含有 AI 创作价值时显示可信度和评估板块 -->
+  <view class="section flex-row" wx:if="{{event.creative_value > 0}}">
     <view class="info-card">
       <text class="info-label">可信度评估</text>
       <text class="info-value">{{event.credibility}}</text>
@@ -29,8 +38,9 @@
     </view>
   </view>
 
-  <view class="section">
-    <view class="section-title">💡 推荐创作角度</view>
+  <!-- 仅在含有 AI 角度时显示创作角度 -->
+  <view class="section" wx:if="{{event.creative_value > 0 && event.angles && event.angles.length > 0}}">
+    <view class="section-title">推荐创作角度</view>
     <view class="angle-list">
       <view class="angle-item" wx:for="{{event.angles}}" wx:key="*this">
         <text class="angle-index">{{index + 1}}</text>
@@ -39,7 +49,7 @@
     </view>
   </view>
   
-  <view class="section" wx:if="{{event.suggestion}}">
+  <view class="section" wx:if="{{event.creative_value > 0 && event.suggestion}}">
     <view class="section-title">Agent 跟进建议</view>
     <view class="suggestion-box">
       <text>{{event.suggestion}}</text>
@@ -50,4 +60,11 @@
 
 <view class="loading-state" wx:if="{{loading}}">
   <text>加载中...</text>
+</view>
+
+<view class="container" wx:if="{{!loading && error}}">
+  <view class="state-card error">
+    <view class="state-title">详情暂时不可用</view>
+    <view class="state-copy">{{error}}</view>
+  </view>
 </view>

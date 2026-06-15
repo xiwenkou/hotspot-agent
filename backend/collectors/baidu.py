@@ -37,17 +37,25 @@ class BaiduCollector(BaseCollector):
                     title = item.get("word", "")
                     url = item.get("appUrl", "")
                     hot_score = str(item.get("hotScore", ""))
+                    desc = item.get("desc", "")
                     
                     if not title:
                         continue
+                        
+                    # 尝试抓取原文
+                    source_content = self.fetch_article_text(url)
+                    if not source_content:
+                        source_content = desc if desc else f"当前热度：{hot_score}"
                         
                     results.append({
                         "title": title,
                         "platform": self.platform,
                         "url": url,
-                        "rank": rank,
-                        "rawHeat": f"{hot_score}热度",
-                        "collectedAt": self.get_current_time()
+                        "author": None,
+                        "publish_time": None,
+                        "source_content": source_content,
+                        "html_snapshot": None,
+                        "collected_at": self.get_current_time()
                     })
             return results
         except Exception as e:

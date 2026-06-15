@@ -1,0 +1,13 @@
+Keyword,ProductType,Style,ColorPalette,Typography,LandingStructure,Effects,AntiPatterns
+fintech,Fintech Tool,Minimalism,Deep Slate & Tech Blue,Modern Sans & Monospace,Hero-centric with Live Chart,Subtle shadows & Clean borders,Redundant elements & Unlabeled charts
+saas,SaaS Dashboard,Bento Grid,Deep Slate & Cool Gray,Modern Sans,Dashboard overview & Feature matrix,Soft elevations & Glass cards,Excessive layout shifts & Hidden nav
+beauty,Beauty/Wellness Spa,Minimalism,Warm Ochre & Warm Sand,Elegant Serif,Hero with large media & Social proof,Subtle warm glow & Round corners,Harsh colors & Heavy border strokes
+spa,Beauty/Wellness Spa,Minimalism,Warm Ochre & Warm Sand,Elegant Serif,Hero with large media & Social proof,Subtle warm glow & Round corners,Harsh colors & Heavy border strokes
+wellness,Beauty/Wellness Spa,Minimalism,Warm Ochre & Warm Sand,Elegant Serif,Hero with large media & Social proof,Subtle warm glow & Round corners,Harsh colors & Heavy border strokes
+service,Service Booking,Minimalism,Warm Ochre & Warm Sand,Elegant Serif,Hero with large media & Social proof,Subtle warm glow & Round corners,Harsh colors & Heavy border strokes
+entertainment,Entertainment / Social App,Vibrant / Immersive,Electric Neon & Cyber Dark,Playful Modern Sans,Immersive Hero & Dynamic feed,Electric glowing drop-shadows,Gray-on-gray low contrast & Instant transitions
+social,Entertainment / Social App,Vibrant / Immersive,Electric Neon & Cyber Dark,Playful Modern Sans,Immersive Hero & Dynamic feed,Electric glowing drop-shadows,Gray-on-gray low contrast & Instant transitions
+vibrant,Entertainment / Social App,Vibrant / Immersive,Electric Neon & Cyber Dark,Playful Modern Sans,Immersive Hero & Dynamic feed,Electric glowing drop-shadows,Gray-on-gray low contrast & Instant transitions
+ecommerce,E-commerce Store,Minimalism,Classic Navy & Emerald,Modern Sans,Product hero & Testimonial,Subtle card shadows,Emoji as buttons & Broken back behavior
+portfolio,Personal Portfolio,Minimalism,Classic Navy & Emerald,Elegant Serif,Intro hero & Work gallery,Clean card grid,Heavy outlines & Cluttered headers
+healthcare,Healthcare App,Minimalism,Teal & Calm Gray,Professional Sans,Hero with trust indicators,Soft card borders,Low contrast labels & Red/green-only error alerts

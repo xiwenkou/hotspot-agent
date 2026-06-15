@@ -1,19 +1,19 @@
 <view class="card" bindtap="onTap">
   <view class="card-header">
     <view class="category-tag">{{item.category || '综合'}}</view>
-    <view class="platforms">
+    <view class="platforms" wx:if="{{item.platforms && item.platforms.length > 0}}">
       <text class="platform-text" wx:for="{{item.platforms}}" wx:key="*this">{{item}}</text>
     </view>
   </view>
   
-  <view class="card-title">{{item.title}}</view>
+  <view class="card-title">{{item.title || '未命名情报'}}</view>
   
-  <view class="card-summary" wx:if="{{item.summary}}">
+  <view class="card-summary">
     {{item.summary}}
   </view>
   
   <view class="card-footer">
-    <view class="ai-tags">
+    <view class="ai-tags" wx:if="{{item.creative_value > 0}}">
       <view class="tag risk-{{item.risk_level === '高' ? 'high' : (item.risk_level === '中' ? 'mid' : 'low')}}">
         <text class="dot"></text> 风险: {{item.risk_level || '未知'}}
       </view>
@@ -21,6 +21,11 @@
         <text class="score-icon">★</text> 价值 {{item.creative_value || 0}}
       </view>
     </view>
-    <view class="rank">No.{{item.max_rank}}</view>
+    <view class="ai-tags" wx:else>
+      <view class="tag plain">
+        实时直出资讯
+      </view>
+    </view>
+    <view class="rank" wx:if="{{item.max_rank > 0}}">No.{{item.max_rank}}</view>
   </view>
 </view>

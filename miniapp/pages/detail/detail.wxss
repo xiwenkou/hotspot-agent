@@ -46,7 +46,7 @@
 .summary-box {
   background-color: var(--bg-card);
   padding: 32rpx;
-  border-radius: 24rpx;
+  border-radius: 16rpx;
   font-size: 30rpx;
   line-height: 1.6;
   color: var(--text-main);
@@ -62,7 +62,7 @@
   flex: 1;
   background-color: var(--bg-card);
   padding: 24rpx;
-  border-radius: 20rpx;
+  border-radius: 16rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,7 +96,7 @@
   display: flex;
   background-color: var(--bg-card);
   padding: 28rpx;
-  border-radius: 20rpx;
+  border-radius: 16rpx;
   box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.02);
 }
 
@@ -118,7 +118,7 @@
   background-color: var(--accent-light);
   color: var(--accent-color);
   padding: 32rpx;
-  border-radius: 24rpx;
+  border-radius: 16rpx;
   font-size: 28rpx;
   line-height: 1.6;
   font-weight: 500;
@@ -129,4 +129,29 @@
   padding: 100rpx 0;
   color: var(--accent-color);
   font-size: 28rpx;
+}
+
+.state-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16rpx;
+  padding: 40rpx 32rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.02);
+}
+
+.state-card.error {
+  border-color: rgba(239, 68, 68, 0.18);
+}
+
+.state-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 12rpx;
+}
+
+.state-copy {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }

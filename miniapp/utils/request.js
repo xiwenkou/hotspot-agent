@@ -2,8 +2,7 @@ const app = getApp();
 
 const request = (url, method = 'GET', data = {}) => {
   return new Promise((resolve, reject) => {
-    // 这里简单获取全局 URL，也可以直接写死如果还没拿到 app 实例
-    const baseUrl = 'http://127.0.0.1:8000/api';
+    const baseUrl = (app.globalData && app.globalData.apiUrl) || '';
     
     wx.request({
       url: `${baseUrl}${url}`,
@@ -14,7 +13,18 @@ const request = (url, method = 'GET', data = {}) => {
       },
       success: (res) => {
         if (res.statusCode === 200) {
-          resolve(res.data.data); // 直接剥离出 data 层
+          const responseData = res.data;
+          if (responseData && responseData.code && Number(responseData.code) !== 200) {
+            wx.showToast({
+              title: responseData.message || '服务返回异常',
+              icon: 'none'
+            });
+            reject(responseData);
+          } else if (responseData && responseData.data !== undefined) {
+            resolve(responseData.data);
+          } else {
+            resolve(responseData || null);
+          }
         } else {
           wx.showToast({
             title: '服务器异常',
